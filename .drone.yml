@@ -1,8 +1,6 @@
 pipeline:
   build:
     image: python:2.7.14
-    environment:
-      - main=false
     commands:
       - echo 'install requirement'
       - pip install -r requirement.txt
