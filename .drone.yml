@@ -14,4 +14,4 @@ pipeline:
     when:
       branch: master
 labels:
-  main: false
+  main: "false"
