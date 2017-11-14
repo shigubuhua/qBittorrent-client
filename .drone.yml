@@ -5,6 +5,7 @@ pipeline:
     commands:
       - echo 'install requirement'
       - pip install -r requirement.txt
+      - python -v
     when:
       status:  [ failure, success ]
   publish:
