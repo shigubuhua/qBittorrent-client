@@ -3,7 +3,7 @@ pipeline:
     image: python:2.7.14
     environment:
     commands:
-      - echo 'install requirement'
+      - echo 'install requirements'
       - pip install -r requirement.txt
 
   publish:
