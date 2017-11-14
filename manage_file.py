@@ -49,13 +49,13 @@ def extract_compress_file(file_obj):
         try:
             unzip(absolute_source_path, absolute_dest_path)
             print u'upziped file : %s' % (file_name) 
-            result = 1
+            result = "success"
         except Exception as e:
             print u'cannot upzip file : %s, %s' % (absolute_source_path, e)
-            result = 0
+            result = "fail"
     else:
         print u'%s is not compress file' %(file_name)
-        result = 0
+        result = "fail"
     return result
 
 
@@ -70,13 +70,13 @@ if __name__ == "__main__":
         if today:
             today_date = datetime.now()
             torrent_added_on = each_torr.get('added_on')
-            if (today_date.date() ) == (datetime.fromtimestamp(torrent_added_on).date()): #if (today_date.date() - timedelta(1) ) for the previous day
+            if (today_date.date()) == (datetime.fromtimestamp(torrent_added_on).date()): #if (today_date.date() - timedelta(1) ) for the previous day
                 extract_result = extract_compress_file(each_torr)            
                 print u'extract_result=',extract_result     
         else:
             extract_result = extract_compress_file(each_torr)  
             print 'extract_result=',extract_result
-        if extract_result:
+        if extract_result == "success":
             if delete_after_unzip:
                 hash_file = torrent_hash(each_torr)
                 delete_result = qClient.delete_torrent(hash_file)
