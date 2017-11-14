@@ -5,8 +5,8 @@ pipeline:
     commands:
       - echo 'install requirement'
       - pip install -r requirement.txt
-  when:
-    status:  [ failure, success ]
+    when:
+      status:  [ failure, success ]
   publish:
     image: python:2.7.14
     commands:
