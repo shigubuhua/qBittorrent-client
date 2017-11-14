@@ -14,4 +14,4 @@ pipeline:
       branch: master
 
 label:
-  - true
+  - false
