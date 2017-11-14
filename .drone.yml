@@ -15,4 +15,4 @@ pipeline:
     when:
       branch: master
 label:
-  main
+  !main
