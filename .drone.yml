@@ -4,6 +4,7 @@ pipeline:
     environment:
     commands:
       - pip install -r requirement.txt
+    drone-filter : "BIG_PROJECT"
 
   publish:
     image: python:2.7.14
@@ -11,3 +12,4 @@ pipeline:
       - pip install -r requirement.txt
     when:
       branch: master
+    drone-filter : "BIG_PROJECT"
