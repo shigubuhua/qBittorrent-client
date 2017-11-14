@@ -14,5 +14,5 @@ pipeline:
       - pip install -r requirement.txt
     when:
       branch: master
-label:
-  "false"
+labels: false
+  
