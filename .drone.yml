@@ -13,4 +13,4 @@ pipeline:
       branch: master
 
 label:
-  - project=main
+  - main=1
