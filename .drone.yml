@@ -3,6 +3,7 @@ pipeline:
     image: python:2.7.14
     environment:
     commands:
+      - echo 'install python requirement'
       - pip install -r requirement.txt
 
   publish:
@@ -11,4 +12,3 @@ pipeline:
       - pip install -r requirement.txt
     when:
       branch: master
-
