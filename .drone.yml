@@ -12,5 +12,3 @@ pipeline:
     when:
       branch: master
 
-label:
-  - main=1
