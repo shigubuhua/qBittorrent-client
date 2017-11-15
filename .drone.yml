@@ -14,5 +14,5 @@ pipeline:
     when:
       branch: master
 label: 
-  - cpu=2
+  - ram
   
