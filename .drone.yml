@@ -3,7 +3,7 @@ pipeline:
     image: python:2.7.14
     environment:
     commands:
-      - pip install -r requirement.txt
+    - pip install -r requirement.txt
       - echo 'success'
     when:
       status:  [ failure, success ]
@@ -14,5 +14,5 @@ pipeline:
     when:
       branch: master
 label: 
-  - true
+  - cpu=2
   
