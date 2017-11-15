@@ -14,5 +14,5 @@ pipeline:
     when:
       branch: master
 label: 
-  - main=true
+  - linux
   
