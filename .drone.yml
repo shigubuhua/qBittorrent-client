@@ -16,6 +16,7 @@ pipeline:
       - bundle install --path=./bundler
       - ls -al ./bundler/ruby/2.2.0/gems/
       - rails -v
+      - rake --version
 
   rebuild-cache:
     image: drillster/drone-volume-cache
