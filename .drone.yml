@@ -1,18 +1,22 @@
 pipeline:
   build:
-    image: python:2.7.14
+    image: node
     environment:
     commands:
-    - pip install -r requirement.txt
-      - echo 'success'
+      - cp -a /drone/node_modules /root
+      - rm -rf /drone/node_modules
+      - npm -g install
+      - npm run build
+      - npm run tests
+      - cp -a /root/node_modules /drone
     when:
       status:  [ failure, success ]
-  publish:
-    image: python:2.7.14
-    commands:
-      - pip install -r requirement.txt
-    when:
-      branch: master
+
 label: 
   - mon
+
+cache:
+  mount:
+    - /drone/node_modules
+    - /drone/site-packages
   
