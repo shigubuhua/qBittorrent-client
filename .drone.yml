@@ -3,21 +3,23 @@ pipeline:
     image: drillster/drone-volume-cache
     restore: true
     mount:
-      - ./node_modules
+      - /tmp/bundler
     volumes:
       - /tmp/cache:/cache
 
   build:
-    image: node
+    image: ruby:2.2.3
+    environment:
+      - RAILS_ENV=test
     commands:
-      - ls -al ./node_modules
-      - npm install
-      - ls -al ./node_modules
+      - ls -al .
+      - bundle install --path=/tmp/bundler
+      - ls -al .
 
   rebuild-cache:
     image: drillster/drone-volume-cache
     rebuild: true
     mount:
-      - ./node_modules
+      - /tmp/bundler
     volumes:
       - /tmp/cache:/cache
