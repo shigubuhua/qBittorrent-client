@@ -1,2 +1,2 @@
 # qBittorrent-client
-qBittorrent client for python
+qBittorrent client for python.
