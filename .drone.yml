@@ -12,11 +12,10 @@ pipeline:
     environment:
     commands:
       - pwd
-      - ls -al /usr/lib/python2.7/dist-packages     
+      #- cp -a /cache/site-packages /usr/local/lib/python2.7/  
+      - ls -al /drone/
       - pip install -r requirement.txt
-      - ls -al /usr/lib/python2.7/dist-packages
       - ls -al /usr/local/lib/python2.7/site-packages
-      - ls -al /usr/local/lib/python2.7/dist-packages
       - echo 'success'
     when:
       status:  [ failure, success ]
