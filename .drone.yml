@@ -10,9 +10,9 @@ pipeline:
   build:
     image: node
     commands:
-      - ls -al .
+      - ls -al ./node_modules
       - npm install package.json
-      - ls -al .
+      - ls -al ./node_modules
 
   rebuild-cache:
     image: drillster/drone-volume-cache
