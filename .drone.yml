@@ -1,17 +1,21 @@
 pipeline:
-  build:
-    image: node:latest
-    commands:
-      - cp -a /drone/node_modules /root
-      - rm -rf /drone/node_modules
-      - npm -g install
-      - npm run build
-      - npm run tests
-      - cp -a /root/node_modules /drone
-    when:
-      status:  [ failure, success ]
+  restore-cache:
+    image: drillster/drone-volume-cache
+    restore: true
     mount:
-      - /drone/node_modules
-      - /drone/site-packages
+      - ./node_modules
+    volumes:
+      - /tmp/cache:/cache
 
-  
+  build:
+    image: node
+    commands:
+      - npm install
+
+  rebuild-cache:
+    image: drillster/drone-volume-cache
+    rebuild: true
+    mount:
+      - ./node_modules
+    volumes:
+      - /tmp/cache:/cache
