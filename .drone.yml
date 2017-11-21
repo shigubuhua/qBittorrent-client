@@ -11,7 +11,7 @@ pipeline:
     image: node
     commands:
       - ls -al ./node_modules
-      - npm install package.json
+      - npm install
       - ls -al ./node_modules
 
   rebuild-cache:

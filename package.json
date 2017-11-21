@@ -1,8 +1,14 @@
 {
-  "name" : "test node",
-  "description" : "test.",
-  "keywords" : ["util", "functional", "server", "client", "browser"],
-  "contributors" : [],
+  "name": "testnode",
+  "description": "test.",
+  "keywords": [
+    "util",
+    "functional",
+    "server",
+    "client",
+    "browser"
+  ],
+  "contributors": [],
   "dependencies": {
     "express": "~3.2.0",
     "mongodb": "~1.2.14",
