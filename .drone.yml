@@ -1,36 +1,21 @@
 pipeline:
-  # restores the cache from a local volume
   restore-cache:
     image: drillster/drone-volume-cache
     restore: true
-    mount: [ site-packages ]
-    # mount: [ /usr/local/lib/python2.7/site-packages ]
-    volumes: 
+    mount:
+      - ./node_modules
+    volumes:
       - /tmp/cache:/cache
 
   build:
-    image: python:2.7.14
-    environment:
+    image: node
     commands:
-      - pwd
-      # - cp -a /drone/site-packages /usr/local/lib/python2.7/
-      # - rm -rf /drone/site-packages  
-      - pip install -r requirement.txt
-      - ls -al /usr/local/lib/python2.7/site-packages
-      # - cp -a /usr/local/lib/python2.7/site-packages /drone
-      - echo $DRONE_REPO_OWNER
-      - echo $DRONE_REPO_NAME
-      - echo $DRONE_JOB_NUMBER
-      - echo 'success'
-    when:
-      status:  [ failure, success ]
+      - npm install package.json
 
-  # rebuild the cache in case new dependencies were
-  # downloaded during your build
   rebuild-cache:
     image: drillster/drone-volume-cache
     rebuild: true
-    mount: [ site-packages ]
-    # mount: [ /usr/local/lib/python2.7/site-packages ]
-    volumes: 
+    mount:
+      - ./node_modules
+    volumes:
       - /tmp/cache:/cache
