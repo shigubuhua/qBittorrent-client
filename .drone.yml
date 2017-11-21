@@ -11,8 +11,6 @@ pipeline:
     image: node
     commands:
       - npm -g install sax@">=0.1.0 <0.2.0"
-      - npm run build
-      - npm run tests
   rebuild-cache:
     image: drillster/drone-volume-cache
     rebuild: true
