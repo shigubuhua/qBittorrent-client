@@ -3,7 +3,7 @@ pipeline:
     image: drillster/drone-volume-cache
     restore: true
     mount:
-      - /tmp/bundler
+      - ./bundler
     volumes:
       - /tmp/cache:/cache
 
@@ -13,13 +13,13 @@ pipeline:
       - RAILS_ENV=test
     commands:
       - ls -al .
-      - bundle install --path=/tmp/bundler
-      - ls -al .
+      - bundle install --path=./bundler
+      - ls -al ./bundler
 
   rebuild-cache:
     image: drillster/drone-volume-cache
     rebuild: true
     mount:
-      - /tmp/bundler
+      - ./bundler
     volumes:
       - /tmp/cache:/cache
