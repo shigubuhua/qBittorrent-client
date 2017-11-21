@@ -10,9 +10,8 @@ pipeline:
       - cp -a /root/node_modules /drone
     when:
       status:  [ failure, success ]
+    mount:
+      - /drone/node_modules
+      - /drone/site-packages
 
-    cache:
-      mount:
-        - /drone/node_modules
-        - /drone/site-packages
   
