@@ -3,7 +3,7 @@ pipeline:
     image: drillster/drone-volume-cache
     restore: true
     mount:
-      - ./node_modules
+      - node_modules
     volumes:
       - /tmp/cache:/cache
 
@@ -16,6 +16,6 @@ pipeline:
     image: drillster/drone-volume-cache
     rebuild: true
     mount:
-      - ./node_modules
+      - node_modules
     volumes:
       - /tmp/cache:/cache
