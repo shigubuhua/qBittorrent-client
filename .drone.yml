@@ -16,6 +16,8 @@ pipeline:
       - echo 'django' >> requirement.txt         
       - pip install -r requirement.txt
       - ls -al /usr/lib/python2.7/dist-packages
+      - ls -al /usr/local/lib/python2.7/site-packages
+      - ls -al /usr/local/lib/python2.7/dist-packages
       - echo 'success'
     when:
       status:  [ failure, success ]
