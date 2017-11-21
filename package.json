@@ -5,7 +5,13 @@
   "keywords" : ["util", "functional", "server", "client", "browser"],
   "author" : "Jeremy Ashkenas <jeremy@documentcloud.org>",
   "contributors" : [],
-  "dependencies" : [],
+  "dependencies": {
+    "express": "~3.2.0",
+    "mongodb": "~1.2.14",
+    "rjs": "~2.10.0",
+    "jade": "~0.29.0",
+    "async": "~0.2.7"
+  },
   "repository" : {"type": "git", "url": "git://github.com/documentcloud/underscore.git"},
   "main" : "underscore.js",
   "version" : "1.1.6"
