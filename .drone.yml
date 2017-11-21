@@ -1,20 +1,27 @@
 pipeline:
+  # restores the cache from a local volume
   restore-cache:
     image: drillster/drone-volume-cache
     restore: true
-    mount:
-      - node_modules
-    volumes:
+    mount: [ /drone/.gradle, /drone/.m2 ]
+    volumes: 
       - /tmp/cache:/cache
 
   build:
-    image: node
+    image: maven
+    environment:
+      - M2_HOME=/drone/.m2
+      - MAVEN_HOME=/drone/.m2
+      - GRADLE_USER_HOME=/drone/.gradle
     commands:
-      - npm -g install sax@">=0.1.0 <0.2.0"
+      - mvn install
+      - mvn package
+
+  # rebuild the cache in case new dependencies were
+  # downloaded during your build
   rebuild-cache:
     image: drillster/drone-volume-cache
     rebuild: true
-    mount:
-      - node_modules
-    volumes:
+    mount: [ /drone/.gradle, /drone/.m2 ]
+    volumes: 
       - /tmp/cache:/cache
