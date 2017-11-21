@@ -52,3 +52,8 @@ group :test do
   gem 'connection_pool'
   gem 'launchy'
 end
+
+
+gem 'harvested'
+gem 'togglv8'
+gem 'awesome_print'
