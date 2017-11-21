@@ -1,7 +1,6 @@
 pipeline:
   build:
-    image: node
-    environment:
+    image: node:latest
     commands:
       - cp -a /drone/node_modules /root
       - rm -rf /drone/node_modules
