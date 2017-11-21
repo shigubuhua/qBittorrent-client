@@ -12,8 +12,7 @@ pipeline:
     environment:
     commands:
       - pwd
-      - ls -al /usr/lib/python2.7/dist-packages
-      - echo 'django' >> requirement.txt         
+      - ls -al /usr/lib/python2.7/dist-packages     
       - pip install -r requirement.txt
       - ls -al /usr/lib/python2.7/dist-packages
       - ls -al /usr/local/lib/python2.7/site-packages
