@@ -12,8 +12,8 @@ pipeline:
     when:
       status:  [ failure, success ]
 
-cache:
-  mount:
-    - /drone/node_modules
-    - /drone/site-packages
+  cache:
+    mount:
+      - /drone/node_modules
+      - /drone/site-packages
   
