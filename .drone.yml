@@ -10,8 +10,9 @@ pipeline:
   build:
     image: node
     commands:
-      - npm install
-
+      - npm -g install
+      - npm run build
+      - npm run tests
   rebuild-cache:
     image: drillster/drone-volume-cache
     rebuild: true
