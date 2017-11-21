@@ -3,7 +3,7 @@ pipeline:
   restore-cache:
     image: drillster/drone-volume-cache
     restore: true
-    mount: [ /drone/site-packages ]
+    mount: [ site-packages ]
     # mount: [ /usr/local/lib/python2.7/site-packages ]
     volumes: 
       - /tmp/cache:/cache
@@ -30,7 +30,7 @@ pipeline:
   rebuild-cache:
     image: drillster/drone-volume-cache
     rebuild: true
-    mount: [ /drone/site-packages ]
+    mount: [ site-packages ]
     # mount: [ /usr/local/lib/python2.7/site-packages ]
     volumes: 
       - /tmp/cache:/cache
