@@ -4,6 +4,7 @@ pipeline:
     image: drillster/drone-volume-cache
     restore: true
     mount: [ /drone/site-packages ]
+    # mount: [ /usr/local/lib/python2.7/site-packages ]
     volumes: 
       - /tmp/cache:/cache
 
@@ -12,10 +13,11 @@ pipeline:
     environment:
     commands:
       - pwd
-      #- cp -a /cache/site-packages /usr/local/lib/python2.7/  
-      - ls -al /drone/
+      # - cp -a /drone/site-packages /usr/local/lib/python2.7/
+      # - rm -rf /drone/site-packages  
       - pip install -r requirement.txt
       - ls -al /usr/local/lib/python2.7/site-packages
+      # - cp -a /usr/local/lib/python2.7/site-packages /drone
       - echo 'success'
     when:
       status:  [ failure, success ]
@@ -26,5 +28,6 @@ pipeline:
     image: drillster/drone-volume-cache
     rebuild: true
     mount: [ /drone/site-packages ]
+    # mount: [ /usr/local/lib/python2.7/site-packages ]
     volumes: 
       - /tmp/cache:/cache
