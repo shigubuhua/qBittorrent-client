@@ -18,14 +18,11 @@ pipeline:
     environment:
     commands:
       - ls -al /usr/share/zoneinfo/
-      - cat /etc/timezone
-      - cat /etc/localtime
+      - date
+      - ln -sf /usr/share/zoneinfo/Asia/Bangkok /etc/timezone
       - date
       - ln -sf /usr/share/zoneinfo/Asia/Bangkok /etc/localtime
-      - ln -sf /usr/share/zoneinfo/Asia/Bangkok /etc/timezone
-      - cat /etc/timezone
-      - cat /etc/localtime
-      - date
+      - date            
 
   publish:
     image: python:2.7.14
