@@ -6,10 +6,12 @@ pipeline:
       - ls -al /usr/share/zoneinfo/
       - cat /etc/timezone
       - cat /etc/localtime
-      # - ln -sf /usr/share/zoneinfo/Asia/Bangkok /etc/localtime
-      # - ln -sf /usr/share/zoneinfo/Asia/Bangkok /etc/timezone
-      # - cat /etc/timezone
-      # - cat /etc/localtime
+      - date
+      - ln -sf /usr/share/zoneinfo/Asia/Bangkok /etc/localtime
+      - ln -sf /usr/share/zoneinfo/Asia/Bangkok /etc/timezone
+      - cat /etc/timezone
+      - cat /etc/localtime
+      - date
       - pip install -r requirement.txt
 
   publish:
